@@ -1,0 +1,16 @@
+version: "3"
+services:
+  users-mysql:
+    image: users-mysql
+    ports:
+      - "8086:8086"
+    links:
+      - mysql-standalone
+
+  mysql-standalone:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=sa
+      - MYSQL_PASSWORD=password
